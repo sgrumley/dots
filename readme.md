@@ -167,6 +167,8 @@ git config --global user.name "sgrumley"
 
 git config --global user.email "grumsamu@gmail.com"
 
+git config --global url.git@github.com:.insteadOf https://github.com/
+
 ```
 
 
