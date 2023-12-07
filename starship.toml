@@ -1,151 +1,90 @@
-# ~/.config/starship.toml
-palette = 'catppuccin_mocha'
-
 format = """
-[](#11111b)\
-$os\
-$username\
-[](bg:#181825 fg:#11111b)\
+[╭─▓▒](lavender)\
 $directory\
-[](fg:#181825 bg:#45475a)\
+[](fg:mantle bg:lavender)\
 $git_branch\
 $git_status\
-[](fg:#45475a bg:#86BBD8)\
-$c\
-$elixir\
-$elm\
-$golang\
-$gradle\
-$haskell\
-$java\
-$julia\
-$nodejs\
-$nim\
-$rust\
-$scala\
-[](fg:#86BBD8 bg:#06969A)\
-$docker_context\
-[](fg:#06969A bg:#33658A)\
-$time\
-[ ](fg:#33658A)\
+[](fg:lavender)\
+$fill\
+$line_break\
+[╰─λ  ](lavender)\
 """
 
-# Disable the blank line at the start of the prompt
+right_format = """
+$cmd_duration\
+$golang\
+$battery\
+"""
+# [░▒▓](#6272a4)\
+palette = "catppuccin_mocha"
 # add_newline = false
 
-# You can also replace your username with a neat symbol like   or disable this
-# and use the os module below
-[username]
-show_always = true
-style_user = "bg:#11111b"
-style_root = "bg:#11111b"
-format = '[$user ]($style)'
-disabled = false
+# Replace the '❯' symbol in the prompt with '➜'
+# [character] # The name of the module we are configuring is 'character'
+# success_symbol = '[❯❯](bold green)'
+# error_symbol = '[❯❯](bold red)'# The 'successcd_symbol' segment is being set to '➜' with the color 'bold green'
 
-# An alternative to the username module which displays a symbol that
-# represents the current operating system
-[os]
-style = "bg:#9A348E"
-disabled = true # Disabled by default
+# [username]
+# show_always = true
+# style_user = "bg:#282A36 fg:#bd93f9 bold"
+# style_root = "bg:#bd93f9 fg:#000000 italic"
+# format = '[ $user ]($style)'
+# disabled = false
+
+[fill]
+style = "fg:lavender"
+symbol = "⎯"
 
 [directory]
-style = "bg:#181825"
+style = "fg:lavender bg:mantle"
 format = "[ $path ]($style)"
 truncation_length = 3
+truncate_to_repo = false
 truncation_symbol = "…/"
 
-# Here is how you can shorten some long paths by text replacement
-# similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
-# Keep in mind that the order matters. For example:
-# "Important Documents" = " 󰈙 "
-# will not be replaced, because "Documents" was already substituted before.
-# So either put "Important Documents" before "Documents" or use the substituted version:
-# "Important 󰈙 " = " 󰈙 "
-
-[c]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#06969A"
-format = '[ $symbol $context ]($style) $path'
-
-[elixir]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+# "Documents" = "  "
+# "Downloads" = "  "
+# # "Music/" = "/"
+# "Pictures" = "  "
+# "/mnt/DATA" = "  "
+# "~/github.com/" = "http://github.com"
 
 [git_branch]
-symbol = ""
-style = "fg:#fab387 bg:#45475a"
-format = '[ $symbol $branch ]($style)'
+symbol = ""
+style = "bg:lavender"
+format = '[[ $symbol $branch ](fg:mantle bg:lavender)]($style)'
 
 [git_status]
-style = "fg:#fab387 bg:#45475a"
-format = '[$all_status$ahead_behind ]($style)'
+style = "bg:lavender"
+format = '[[($all_status$ahead_behind )](fg:mantle bg:lavender)]($style)'
 
 [golang]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+symbol = ""
+format = '[[ $symbol($version)](fg:#ff5555)]($style)'
 
-[gradle]
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+[battery]
+format = '[ $percentage]($style)'
 
-[haskell]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+[[battery.display]]
+threshold = 50
+style = 'fg:#50fa7b'
 
-[java]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+## SECOND LINE/ROW: Prompt
+# Prompt: optional param 1
+[character]
+success_symbol = " [╰─λ](bold purple)"
+#use_symbol_for_status = true
 
-[julia]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[nodejs]
-symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[nim]
-symbol = "󰆥 "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[rust]
-symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[scala]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[time]
-disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
-format = '[ 󰭿 $time 󰭿 ]($style)'
-
+[cmd_duration]
+min_time = 1000
+format = ' [$duration](bold yellow)'
+#
+# [time]
+# disabled = false
+# time_format = "%R" # Hour:Minute Format
+# style = "bg:#282A36 fg:blue bold"
+# format = '[[ $time ](bg:base fg:lavender bold)]($style)'
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
