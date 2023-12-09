@@ -1,23 +1,25 @@
 format = """
-[╭─▓▒](lavender)\
+[╭─▓▒](theme_fg)\
 $directory\
-[](fg:mantle bg:lavender)\
+
+[](fg:theme_bg bg:theme_fg)\
 $git_branch\
 $git_status\
-[](fg:lavender)\
+
+[](fg:theme_fg)\
 $fill\
+
 $line_break\
-[╰─λ  ](lavender)\
+[╰─λ  ](theme_fg)\
 """
 
 right_format = """
 $cmd_duration\
+$time\
 $golang\
-$battery\
 """
 # [░▒▓](#6272a4)\
 palette = "catppuccin_mocha"
-# add_newline = false
 
 # Replace the '❯' symbol in the prompt with '➜'
 # [character] # The name of the module we are configuring is 'character'
@@ -32,17 +34,17 @@ palette = "catppuccin_mocha"
 # disabled = false
 
 [fill]
-style = "fg:lavender"
+style = "fg:theme_fg"
 symbol = "⎯"
 
 [directory]
-style = "fg:lavender bg:mantle"
+style = "fg:theme_fg bg:theme_bg"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncate_to_repo = false
-truncation_symbol = "…/"
+truncation_symbol = "--> "
 
-[directory.substitutions]
+#[directory.substitutions]
 # "Documents" = "  "
 # "Downloads" = "  "
 # # "Music/" = "/"
@@ -52,41 +54,33 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:lavender"
-format = '[[ $symbol $branch ](fg:mantle bg:lavender)]($style)'
+style = "bg:theme_fg"
+format = '[[ $symbol $branch ](fg:theme_bg bg:theme_fg)]($style)'
 
 [git_status]
-style = "bg:lavender"
-format = '[[($all_status$ahead_behind )](fg:mantle bg:lavender)]($style)'
+style = "bg:theme_fg"
+format = '[[($all_status$ahead_behind )](fg:theme_bg bg:theme_fg)]($style)'
 
 [golang]
 symbol = ""
-format = '[[ $symbol($version)](fg:#ff5555)]($style)'
-
-[battery]
-format = '[ $percentage]($style)'
-
-[[battery.display]]
-threshold = 50
-style = 'fg:#50fa7b'
-
-## SECOND LINE/ROW: Prompt
-# Prompt: optional param 1
-[character]
-success_symbol = " [╰─λ](bold purple)"
-#use_symbol_for_status = true
+style = "theme_alt"
+format = '[ $symbol($version)]($style)'
 
 [cmd_duration]
 min_time = 1000
 format = ' [$duration](bold yellow)'
-#
-# [time]
-# disabled = false
-# time_format = "%R" # Hour:Minute Format
-# style = "bg:#282A36 fg:blue bold"
-# format = '[[ $time ](bg:base fg:lavender bold)]($style)'
+
+[time]
+disabled = false
+time_format = "%l:%M%p"
+use_12hr = true
+style = "bg:#282A36 fg:blue bold"
+format = '[[ $time ](bg:base fg:theme_fg bold)]($style)'
 
 [palettes.catppuccin_mocha]
+theme_fg = "#f5e0dc"  # rosewater
+theme_bg = "#181825"  # mantle
+theme_alt = "#b4befe" # lavender
 rosewater = "#f5e0dc"
 flamingo = "#f2cdcd"
 pink = "#f5c2e7"
