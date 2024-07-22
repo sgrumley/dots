@@ -21,7 +21,7 @@ plugins=(
     golang
     ripgrep
     rust
-    # tmux
+    tmux
     colored-man-pages
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -29,11 +29,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# init
-# neofetch # disabling for now as it takes up room in nvim
-
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(starship init zsh)"
+# eval "$(zellij setup --generate-auto-start zsh)"
+#eval "$(starship init zsh)"
+eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/conf.omp.json)"
 eval "$(zoxide init zsh)"
 
 # alias
@@ -41,7 +39,7 @@ alias cd='z'
 alias gs='git status'
 alias gc='git commit'
 alias gp='git push'
-alias ga='git add .'
+alias ga='git add'
 alias m='make'
 alias v='nvim'
 alias vi='nvim'
@@ -56,7 +54,10 @@ export PATH=$PATH:$(go env GOPATH)/bin
 
 # dev env
 export GOOSE_DRIVER=postgres
-export GOOSE_DBSTRING="user=dbuser password=dbpass host=localhost dbname=retinalytics sslmode=disable"
+export GOOSE_DBSTRING="user=dbuser password=dbpass host=localhost dbname=dbname sslmode=disable"
+
+
+if [ "$TMUX" = "" ]; then tmux; fi
 
 # yazi wrapper for exiting in dir
 function ya() {
