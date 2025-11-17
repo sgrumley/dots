@@ -1,43 +1,68 @@
 # Tools installed
+## Term 
+- ghostty
+- kitty
+- windows terminal (wsl)
+
+## Shell
+- zsh 
+- nushell
+
 ## CLI
+- tar
+- wget
 - fzf
 - ripgrep
-- docker
 - git
 - lazy git
 - lazy docker
 - zoxide 
-- eza
-- yazi
+- eza / lsd
+- bat
 - tmux
-- neovim
 - make
-- bat 
+- taskfile
+- neovim
+- docker
+
+## Dev 
+- buf
+- goose 
+- air
+- act 
+- gotex
+- bifrost
+- tparse
+- aws-cli-v2
+- google-cloud-sdk 
 
 ### Still considering
 - gobang
 - lazysql
-- go-task 
+- yazi -> needs config
 - gum
 - loggo
-## Applications
 
-- DBeaver 
-- postman
+## Applications
+- DBeaver -> replaced with dadbod 
+- postman -> replacing with bifrost
 - obsidian
 
 ## Languages
 - go 
 - lua
+    - luarocks
 - node
     - npm
 - python 
     - pip
-- buf 
-- aws-cli-v2
-- google-cloud-sdk 
+- zig 
+- odin
 
 ## Fonts
 - fira
 - victor mono 
 - jetbrains
+
+## Theme 
+- Catppuccin - mocha
