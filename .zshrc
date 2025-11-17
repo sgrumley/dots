@@ -38,6 +38,7 @@ export PATH=$PATH:/home/sgrumley/.local/bin/odin-linux-amd64-nightly+2024-12-05
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 ZSH_THEME=""
+export GOTEX_CONFIG_FILE_PATH="~/.config/gotex/config.yaml"
 
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/conf.omp.json)"
 eval "$(zoxide init zsh)"

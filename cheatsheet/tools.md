@@ -63,6 +63,7 @@
 - fira
 - victor mono 
 - jetbrains
+- source code pro
 
 ## Theme 
 - Catppuccin - mocha
